@@ -5,7 +5,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Model {
+public class ConfigModel {
     public List<String> processedFiles;
-
 }
