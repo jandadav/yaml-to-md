@@ -1,13 +1,13 @@
 package com.ca.mfaas.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.FileNotFoundException;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import java.io.FileNotFoundException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ConfigTest {
 
@@ -20,15 +20,21 @@ public class ConfigTest {
 
     @Ignore
     @Test(expected = FileNotFoundException.class)
-    public void NonExistentFileForConfig() throws Exception {
+    public void nonExistentFileForConfig() throws Exception {
         @SuppressWarnings("unused")
         Config config = Config.fromFile("BREKEKE");
     }
 
     @Test
-    public void RetrieveMessageFiles() {
+    public void retrieveMessageFiles() {
         assertNotNull(config.getMessageFiles());
         assertEquals(2, config.getMessageFiles().size());
     }
+
+    @Test
+    public void outputFile() {
+        assertEquals("output.md", config.getOutputFile());
+    }
+
 
 }

@@ -1,11 +1,12 @@
 package com.ca.mfaas.config;
 
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import org.yaml.snakeyaml.Yaml;
 
 public class Config {
 
@@ -28,10 +29,14 @@ public class Config {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        };
+        }
     }
 
     public List<String> getMessageFiles() {
         return modelInstance.getProcessedFiles();
+    }
+
+    public String getOutputFile() {
+        return modelInstance.getOutputFile();
     }
 }

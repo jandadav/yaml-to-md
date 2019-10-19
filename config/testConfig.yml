@@ -2,3 +2,5 @@
 processedFiles:
   - C:\log-messages.yml
   - C:\log-messages.yml
+outputFile:
+  output.md

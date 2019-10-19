@@ -2,6 +2,7 @@ package com.ca.mfaas.data;
 
 import lombok.Data;
 @SuppressWarnings("unused")
+@Data
 public class Message{
     private String key;
     private String number;

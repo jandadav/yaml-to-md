@@ -7,4 +7,5 @@ import java.util.List;
 @Data
 public class ConfigModel {
     public List<String> processedFiles;
+    public String outputFile;
 }
