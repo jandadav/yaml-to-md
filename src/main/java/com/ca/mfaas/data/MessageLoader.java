@@ -13,11 +13,20 @@ public class MessageLoader {
     
     private Messages messages;
     private static final Yaml yaml = new Yaml(new Constructor(Messages.class));
+    private String name;
 
     public MessageLoader(String messageYaml) {
+
+        if(messageYaml ==null || messageYaml.isEmpty()) {
+            throw new IllegalArgumentException("Constructor argument must be non-null and not empty");
+        }
+
+        this.name = messageYaml;
         try(InputStream is = new FileInputStream(messageYaml)) {
 
+
             messages = (Messages) yaml.load(is);
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -29,5 +38,7 @@ public class MessageLoader {
     public List<Message> getMessages() {
         return messages.getMessages();
     }
+
+    public String getName() {return this.name;}
 
 }

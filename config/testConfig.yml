@@ -1,6 +1,6 @@
 !!com.ca.mfaas.config.ConfigModel
 processedFiles:
-  - C:\log-messages.yml
-  - C:\log-messages.yml
+  - config/testMessages.yml
+  - config/testMessages.yml
 outputFile:
   output.md
