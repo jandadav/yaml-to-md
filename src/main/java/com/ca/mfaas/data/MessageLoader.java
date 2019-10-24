@@ -1,5 +1,6 @@
 package com.ca.mfaas.data;
 
+import com.ca.mfaas.config.MessageFile;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
@@ -15,18 +16,12 @@ public class MessageLoader {
     private static final Yaml yaml = new Yaml(new Constructor(Messages.class));
     private String name;
 
-    public MessageLoader(String messageYaml) {
+    public MessageLoader(MessageFile messageFile) {
 
-        if(messageYaml ==null || messageYaml.isEmpty()) {
-            throw new IllegalArgumentException("Constructor argument must be non-null and not empty");
-        }
-
-        this.name = messageYaml;
-        try(InputStream is = new FileInputStream(messageYaml)) {
-
+        this.name = messageFile.getTitle();
+        try(InputStream is = new FileInputStream(messageFile.getFile())) {
 
             messages = (Messages) yaml.load(is);
-
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

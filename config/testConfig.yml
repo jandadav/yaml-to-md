@@ -1,6 +1,7 @@
-!!com.ca.mfaas.config.ConfigModel
-processedFiles:
-  - config/testMessages.yml
-  - config/testMessages.yml
-outputFile:
-  output.md
+messageFiles:
+  - title: "Message File 1"
+    file: config/testMessages.yml
+  - title: "Message File 2"
+    file: config/testMessages.yml
+
+outputFile: output.md

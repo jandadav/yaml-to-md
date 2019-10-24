@@ -6,6 +6,7 @@ import java.util.List;
 
 @Data
 public class ConfigModel {
-    public List<String> processedFiles;
+    public List<MessageFile> messageFiles;
     public String outputFile;
+
 }
