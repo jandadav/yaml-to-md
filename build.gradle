@@ -21,3 +21,12 @@ dependencies {
     testCompile group: 'commons-io', name: 'commons-io', version: '2.6'
 
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.ca.mfaas.DocGenApplication'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
