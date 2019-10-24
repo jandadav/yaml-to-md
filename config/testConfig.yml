@@ -1,0 +1,7 @@
+messageFiles:
+  - title: "Message File 1"
+    file: config/testMessages.yml
+  - title: "Message File 2"
+    file: config/testMessages.yml
+
+outputFile: output.md

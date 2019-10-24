@@ -129,13 +129,13 @@ hs_err_pid*
 ### Gradle ###
 .gradle
 build/
-gradle
+#gradle
 
 # Ignore Gradle GUI config
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-# !gradle-wrapper.jar
+!gradle-wrapper.jar
 
 # Cache of project
 .gradletasknamecache
@@ -153,3 +153,4 @@ gradle-app.setting
 .idea
 .settings
 .project
+*.iml

@@ -15,19 +15,26 @@ public class ConfigTest {
 
     @Before
     public void setUp() throws Exception {
-        this.config = new Config("config/test.yml");
+        this.config = Config.fromFile("config/testConfig.yml");
     }
 
     @Ignore
     @Test(expected = FileNotFoundException.class)
-    public void NonExistentFileForConfig() throws Exception {
-        Config config = new Config("BREKEKE");
+    public void nonExistentFileForConfig() throws Exception {
+        @SuppressWarnings("unused")
+        Config config = Config.fromFile("BREKEKE");
     }
 
     @Test
-    public void RetrieveMessageFiles() {
+    public void retrieveMessageFiles() {
         assertNotNull(config.getMessageFiles());
         assertEquals(2, config.getMessageFiles().size());
     }
+
+    @Test
+    public void outputFile() {
+        assertEquals("output.md", config.getOutputFile());
+    }
+
 
 }

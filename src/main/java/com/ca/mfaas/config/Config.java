@@ -1,6 +1,8 @@
 package com.ca.mfaas.config;
 
+import com.ca.mfaas.data.Messages;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,23 +12,33 @@ import java.util.List;
 
 public class Config {
 
-    private Yaml yaml = new Yaml();
-    private Object obj;
-    private Model modelInstance;
+    private Yaml yaml = new Yaml(new Constructor(ConfigModel.class));
+    private ConfigModel modelInstance;
+    private static Config configInstance;
 
-    public Config(String configYaml) {
+    public static Config fromFile(String configYaml) {
+        if (configInstance==null) {
+            configInstance = new Config(configYaml);
+        }
+        return configInstance;
+    }
+
+    private Config(String configYaml) {
 
         try(InputStream is = new FileInputStream(configYaml)) {
-            modelInstance = (Model) yaml.load(is);
+            modelInstance = (ConfigModel) yaml.load(is);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        };
-
+        }
     }
 
-    public List<String> getMessageFiles() {
-        return modelInstance.getProcessedFiles();
+    public List<MessageFile> getMessageFiles() {
+        return modelInstance.getMessageFiles();
+    }
+
+    public String getOutputFile() {
+        return modelInstance.getOutputFile();
     }
 }
