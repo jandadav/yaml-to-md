@@ -153,4 +153,6 @@ gradle-app.setting
 .idea
 .settings
 .project
+.classpath
 *.iml
+bin/test/
